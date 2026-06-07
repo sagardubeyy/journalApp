@@ -1,0 +1,6 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://sagardubey1234java_db_user:Von7fxxdWcnNH29m@cluster0.majqrui.mongodb.net/?appName=Cluster0
+      database: journaldb
+      auto-index-creation: true
