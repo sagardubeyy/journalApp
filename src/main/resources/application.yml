@@ -1,6 +1,49 @@
-spring:
-  data:
-    mongodb:
-      uri: mongodb+srv://sagardubey1234java_db_user:Von7fxxdWcnNH29m@cluster0.majqrui.mongodb.net/?appName=Cluster0
-      database: journaldb
-      auto-index-creation: true
+  spring:
+    redis:
+      host: localhost
+      port: 6379
+
+    mail:
+      host: smtp.gmail.com
+      port: 587
+      username: sagardubey.1234.java@gmail.com
+      password: "drvq lqwr gyzi yojv"
+      properties:
+        mail:
+          smtp:
+            auth: true
+            starttls:
+              enable: true
+
+    data:
+      mongodb:
+        uri: mongodb+srv://sagardubey1234java_db_user:Von7fxxdWcnNH29m@cluster0.majqrui.mongodb.net/?appName=Cluster0
+        database: journaldb
+        auto-index-creation: true
+
+    kafka:
+      bootstrap-servers: pkc-l7pr2.ap-south-1.aws.confluent.cloud:9092
+
+      producer:
+        key-serializer: org.apache.kafka.common.serialization.StringSerializer
+        value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+      consumer:
+        group-id: weekly-sentiment-group
+        key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+        value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+
+        properties:
+          spring.json.trusted.packages: com.star.journalApp.model
+
+      properties:
+        security.protocol: SASL_SSL
+        sasl.mechanism: PLAIN
+        sasl.jaas.config: >
+          org.apache.kafka.common.security.plain.PlainLoginModule required
+          username="PQA3OD57Y47OSZMB"
+          password="cflt41PYlK+YO6DnAoL2r/YyEwl4kUurLqz0PZLM3EQW1XL0n797+KzQM31VylgQ";
+
+        session.timeout.ms: 45000
+        client.id: ccloud-springboot-client-33d35d04-ee75-4549-b915-ee30f02a3f33
+
